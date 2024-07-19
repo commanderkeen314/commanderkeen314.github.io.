@@ -1,0 +1,143 @@
+/* CSS for Tooltip Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px; /* Adjust the top margin for the page content */
+}
+
+.container {
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-group {
+    margin-bottom: 0px;
+    text-align: center;
+    line-height: 1; /* Adjust the line-height for the title group */
+}
+
+.title-group h1 {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 0px; /* Reduce space between headline and byline */
+}
+
+.title-group .byline {
+    font-size: 25px;
+    color: darkseagreen;
+    margin-top: 0px;
+    margin-bottom: 0px; /* Reduce space between byline and core skills */
+}
+
+.title-group .core-skills {
+    font-size: 20px;
+    color: grey;
+    margin-top: 0px;
+}
+
+.experience-group,
+.education-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    line-height: 1.2; /* Adjust the line-height for experience and education groups */
+}
+
+.experience-group {
+    width: calc(100% - 100px);
+}
+
+.experience-group .tooltip {
+    margin: 0 5px;
+}
+
+.education-group {
+    width: calc(100% - 200px);
+}
+
+.education-group .tooltip {
+    margin: 0 5px;
+}
+
+.smallprint-group {
+    font-size: 15px;
+    color: grey;
+    margin-top: 0px;
+    text-align: center;
+    line-height: 1.2; /* Adjust the line-height for the smallprint group */
+}
+
+.smallprint-group a {
+    color: grey;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.smallprint-group a:hover {
+    text-decoration: underline;
+}
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+}
+
+/* General tooltip styling */
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: darkgrey; /* Change tooltip background to a darker grey */
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold; /* Make tooltip text bold */
+    white-space: pre-line; /* Preserve newline characters */
+	white-space: pre-wrap;
+
+    max-width: 500px;
+    min-width: 250px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10; /* Ensure tooltips appear above other elements */
+}
+
+/* Tooltips for title group (appear below) */
+.title-group .tooltip::after {
+    bottom: -240px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: sandybrown; /* Change tooltip background to a darker grey */
+	align-items: center;
+
+}
+
+/* Tooltips for experience group (appear below) */
+.experience-group .tooltip::after {
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: cadetblue; /* Change tooltip background to a darker grey */
+	text-align: left; /* Align tooltip text to the left */
+
+}
+
+/* Tooltips for education group (appear above) */
+.education-group .tooltip::after {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background-color: rosybrown; /* Change tooltip background to a darker grey */
+	text-align: left; /* Align tooltip text to the left */
+
+}
+
+.tooltip:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
